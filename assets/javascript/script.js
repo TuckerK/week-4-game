@@ -14,32 +14,33 @@ $(document).ready(function() {
 
   $("#goalNum").text("Your goal is " + goalNum);
 
-  function restart(){
+  function restart() {
     goalNum = Math.floor(Math.random() * 101) + 19;
     gems = {
-    gem1: Math.floor(Math.random() * 12) + 1,
-    gem2: Math.floor(Math.random() * 12) + 1,
-    gem3: Math.floor(Math.random() * 12) + 1,
-    gem4: Math.floor(Math.random() * 12) + 1
-  };
-  currentNum = 0;
-  $("#currentNum").text("Your current value is " + currentNum);  
-  $("#goalNum").text("Your goal is" + goalNum);
+      gem1: Math.floor(Math.random() * 12) + 1,
+      gem2: Math.floor(Math.random() * 12) + 1,
+      gem3: Math.floor(Math.random() * 12) + 1,
+      gem4: Math.floor(Math.random() * 12) + 1
+    };
+
+    currentNum = 0;
+    $("#currentNum").text("Your current value is " + currentNum);
+    $("#goalNum").text("Your goal is " + goalNum);
   }
 
   function winCondition(x) {
     if (x > goalNum) {
       losses++;
       $("#winStatus").text("You Lose!");
-      setTimeout(function(){
-        restart();        
+      restart();
+      setTimeout(function() {
         $("#winStatus").text("Click the Gems!");
       }, 2000);
     } else if (x === goalNum) {
       wins++;
       $("#winStatus").text("You Win!");
-      setTimeout(function(){
-        restart();        
+      restart();
+      setTimeout(function() {
         $("#winStatus").text("Click the Gems!");
       }, 2000);
     }
